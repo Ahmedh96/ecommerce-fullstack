@@ -49,7 +49,7 @@ Dynamic product pages
 Author
 Name: Ahmed Waleed
 
-GitHub: github.com/your-username](https://github.com/Ahmedh96/)
+GitHub: [github.com/Ahmedh96]
 
 Email: ahmedalrayan96@email.com
 
