@@ -23,6 +23,12 @@ services:
             - sail
         depends_on:
             - pgsql
+    adminer:
+        image: adminer
+        ports:
+        - 8081:8080
+        networks:
+        - sail
     pgsql:
         image: 'postgres:17'
         ports:

@@ -13,11 +13,30 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // 1. إنشاء تصنيفات (categories) أولاً
+        \App\Models\Category::factory(5)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // 2. إنشاء منتجات (products) بعد التصنيفات
+        \App\Models\Product::factory(20)->create();
+
+        // 3. إنشاء مستخدمين
+        \App\Models\User::factory(10)->create();
+
+        // 4. إنشاء كوبونات
+        \App\Models\Coupon::factory(5)->create();
+
+        // 5. إنشاء سلات
+        \App\Models\Cart::factory(10)->create();
+
+        // 6. إنشاء عناوين
+        \App\Models\Address::factory(10)->create();
+
+        // 7. إنشاء طلبات مع عناصرها
+        \App\Models\Order::factory(10)
+            ->has(\App\Models\OrderItem::factory()->count(3), 'orderItems')
+            ->create();
+
+        // 8. Seed permissions, roles, and assign them to users
+        $this->call(PermissionRoleSeeder::class);
     }
 }
